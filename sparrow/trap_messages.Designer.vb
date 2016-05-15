@@ -22,7 +22,7 @@ Partial Class trap_messages
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.tool_Keywords = New System.Windows.Forms.ToolStripTextBox()
@@ -287,14 +287,14 @@ Partial Class trap_messages
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("宋体", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption
@@ -314,6 +314,7 @@ Partial Class trap_messages
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ToolStrip2)
         Me.Controls.Add(Me.ToolStrip1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MinimizeBox = False
         Me.Name = "trap_messages"
         Me.ShowIcon = False

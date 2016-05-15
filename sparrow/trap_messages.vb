@@ -81,13 +81,14 @@
         Dim ret As DialogResult = MessageBox.Show("你要确定所选择的告警信息吗？", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If ret = 7 Then Return
         Dim nidx As IEnumerable(Of Integer) = getRowIndex()
+
         Dim vid As Integer = 0, aschk As String = "", sql As String = ""
         For i = 0 To nidx.Count - 1
             With DataGridView1.Rows(nidx(i))
                 vid = .Cells("id").Value
                 aschk = .Cells("aschk").Value
-                If aschk = "No" Then
-                    .Cells("aschk").Value = "Yes"
+                If aschk = "否" Then
+                    .Cells("aschk").Value = "是"
                     sql += "update trap_messages set confirmed=1 where id=" & vid & ";"
                 End If
             End With
