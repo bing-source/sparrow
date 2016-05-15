@@ -1,0 +1,7 @@
+[{
+    "enterprise": "1.3.6.1.4.1.28350.2.1.4",
+    "generictrap": 6,
+    "specifictrap": 65535,
+    "printf": "Lost connection.",
+    "alarmLevel": 2
+}]

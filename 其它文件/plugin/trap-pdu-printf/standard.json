@@ -1,0 +1,31 @@
+[{
+    "enterprise": "1.3.6.1.2.1.2.2.1.8",
+    "generictrap": 0,
+    "printf": "ColdStart",
+    "alarmLevel": 2
+}, {
+    "enterprise": "1.3.6.1.2.1.2.2.1.8",
+    "generictrap": 1,
+    "printf": "WarmStart",
+    "alarmLevel": 2
+}, {
+    "enterprise": "1.3.6.1.2.1.2.2.1.8",
+    "generictrap": 2,
+    "printf": "Port {sp} LinkDown",
+    "alarmLevel": 2
+}, {
+    "enterprise": "1.3.6.1.2.1.2.2.1.8",
+    "generictrap": 3,
+    "printf": "Port {sp} LinkUp",
+    "alarmLevel": 0
+}, {
+    "enterprise": "1.3.6.1.2.1.2.2.1.8",
+    "generictrap": 4,
+    "printf": "Authentication Failure",
+    "alarmLevel": 1
+}, {
+    "enterprise": "1.3.6.1.2.1.2.2.1.8",
+    "generictrap": 5,
+    "printf": "EgpNeighborLoss",
+    "alarmLevel": 1
+}]
