@@ -40,6 +40,7 @@ Partial Class main
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
         Me.menu_reLoadHost = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.menu_scan = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_outTools = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_sysBrower = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_ping = New System.Windows.Forms.ToolStripMenuItem()
@@ -71,9 +72,10 @@ Partial Class main
         '
         'TabControl1
         '
+        Me.TabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.ItemSize = New System.Drawing.Size(48, 18)
-        Me.TabControl1.Location = New System.Drawing.Point(186, 32)
+        Me.TabControl1.Location = New System.Drawing.Point(182, 33)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(600, 364)
@@ -81,6 +83,7 @@ Partial Class main
         '
         'TabPage1
         '
+        Me.TabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TabPage1.Controls.Add(Me.WebBrowser1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
@@ -98,12 +101,12 @@ Partial Class main
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
         Me.WebBrowser1.ScriptErrorsSuppressed = True
-        Me.WebBrowser1.Size = New System.Drawing.Size(586, 332)
-        Me.WebBrowser1.TabIndex = 0
+        Me.WebBrowser1.Size = New System.Drawing.Size(584, 330)
+        Me.WebBrowser1.TabIndex = 3
         '
         'TreeView1
         '
-        Me.TreeView1.BackColor = System.Drawing.SystemColors.Menu
+        Me.TreeView1.BackColor = System.Drawing.Color.Beige
         Me.TreeView1.Font = New System.Drawing.Font("微软雅黑", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.TreeView1.ImageIndex = 0
         Me.TreeView1.ImageList = Me.ImageList1
@@ -111,7 +114,7 @@ Partial Class main
         Me.TreeView1.Name = "TreeView1"
         Me.TreeView1.SelectedImageIndex = 0
         Me.TreeView1.Size = New System.Drawing.Size(180, 427)
-        Me.TreeView1.TabIndex = 0
+        Me.TreeView1.TabIndex = 2
         '
         'ImageList1
         '
@@ -125,9 +128,9 @@ Partial Class main
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_addHost, Me.menu_modHost, Me.menu_modGroup, Me.ToolStripMenuItem1, Me.menu_delHost, Me.menu_delGroup, Me.menu_clearHost, Me.ToolStripMenuItem2, Me.menu_reLoadHost, Me.ToolStripMenuItem3, Me.menu_outTools})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_addHost, Me.menu_modHost, Me.menu_modGroup, Me.ToolStripMenuItem1, Me.menu_delHost, Me.menu_delGroup, Me.menu_clearHost, Me.ToolStripMenuItem2, Me.menu_reLoadHost, Me.ToolStripMenuItem3, Me.menu_scan, Me.menu_outTools})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(182, 198)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(182, 220)
         '
         'menu_addHost
         '
@@ -189,6 +192,12 @@ Partial Class main
         Me.ToolStripMenuItem3.Size = New System.Drawing.Size(178, 6)
         Me.ToolStripMenuItem3.Visible = False
         '
+        'menu_scan
+        '
+        Me.menu_scan.Name = "menu_scan"
+        Me.menu_scan.Size = New System.Drawing.Size(181, 22)
+        Me.menu_scan.Text = "扫描添加设备"
+        '
         'menu_outTools
         '
         Me.menu_outTools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_sysBrower, Me.menu_ping, Me.menu_telnet})
@@ -200,23 +209,24 @@ Partial Class main
         'menu_sysBrower
         '
         Me.menu_sysBrower.Name = "menu_sysBrower"
-        Me.menu_sysBrower.Size = New System.Drawing.Size(136, 22)
-        Me.menu_sysBrower.Text = "系统浏览器"
+        Me.menu_sysBrower.Size = New System.Drawing.Size(127, 22)
+        Me.menu_sysBrower.Text = "IE 浏览器"
         '
         'menu_ping
         '
         Me.menu_ping.Name = "menu_ping"
-        Me.menu_ping.Size = New System.Drawing.Size(136, 22)
-        Me.menu_ping.Text = "&Ping"
+        Me.menu_ping.Size = New System.Drawing.Size(127, 22)
+        Me.menu_ping.Text = "Ping"
         '
         'menu_telnet
         '
         Me.menu_telnet.Name = "menu_telnet"
-        Me.menu_telnet.Size = New System.Drawing.Size(136, 22)
-        Me.menu_telnet.Text = "&Telnet"
+        Me.menu_telnet.Size = New System.Drawing.Size(127, 22)
+        Me.menu_telnet.Text = "Telnet"
         '
         'ToolStrip1
         '
+        Me.ToolStrip1.BackColor = System.Drawing.Color.Pink
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(26, 26)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tool_systemSet, Me.ToolStripSeparator1, Me.tool_addHost, Me.ToolStripSeparator2, Me.tool_hostlog, Me.ToolStripSeparator3, Me.tool_alarm, Me.tool_alarm_tip})
@@ -232,8 +242,8 @@ Partial Class main
         '
         Me.tool_systemSet.Image = Global.sparrow.My.Resources.Resources.settings
         Me.tool_systemSet.Name = "tool_systemSet"
-        Me.tool_systemSet.Size = New System.Drawing.Size(77, 30)
-        Me.tool_systemSet.Text = "设置(&S)"
+        Me.tool_systemSet.Size = New System.Drawing.Size(101, 30)
+        Me.tool_systemSet.Text = "系统设置(&S)"
         Me.tool_systemSet.ToolTipText = "Settings"
         '
         'ToolStripSeparator1
@@ -275,7 +285,7 @@ Partial Class main
         Me.tool_alarm.Name = "tool_alarm"
         Me.tool_alarm.Padding = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.tool_alarm.Size = New System.Drawing.Size(109, 30)
-        Me.tool_alarm.Text = "告警信息(&J)"
+        Me.tool_alarm.Text = "告警日志(&J)"
         Me.tool_alarm.ToolTipText = "alarms"
         '
         'tool_alarm_tip
@@ -303,14 +313,13 @@ Partial Class main
         'cmb_seo
         '
         Me.cmb_seo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cmb_seo.BackColor = System.Drawing.SystemColors.Info
         Me.cmb_seo.FormattingEnabled = True
         Me.cmb_seo.Location = New System.Drawing.Point(0, 31)
         Me.cmb_seo.MaxDropDownItems = 10
         Me.cmb_seo.MaxLength = 20
         Me.cmb_seo.Name = "cmb_seo"
         Me.cmb_seo.Size = New System.Drawing.Size(180, 20)
-        Me.cmb_seo.TabIndex = 1
+        Me.cmb_seo.TabIndex = 0
         '
         'lv_alarm
         '
@@ -321,13 +330,12 @@ Partial Class main
         Me.lv_alarm.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.lv_alarm.GridLines = True
         Me.lv_alarm.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None
-        Me.lv_alarm.HoverSelection = True
-        Me.lv_alarm.Location = New System.Drawing.Point(186, 395)
+        Me.lv_alarm.Location = New System.Drawing.Point(186, 393)
         Me.lv_alarm.MultiSelect = False
         Me.lv_alarm.Name = "lv_alarm"
         Me.lv_alarm.ShowGroups = False
-        Me.lv_alarm.Size = New System.Drawing.Size(596, 84)
-        Me.lv_alarm.TabIndex = 0
+        Me.lv_alarm.Size = New System.Drawing.Size(592, 84)
+        Me.lv_alarm.TabIndex = 5
         Me.lv_alarm.UseCompatibleStateImageBehavior = False
         Me.lv_alarm.View = System.Windows.Forms.View.Details
         '
@@ -361,7 +369,7 @@ Partial Class main
         'lv_content
         '
         Me.lv_content.Text = "content"
-        Me.lv_content.Width = 600
+        Me.lv_content.Width = 500
         '
         'main
         '
@@ -376,7 +384,7 @@ Partial Class main
         Me.KeyPreview = True
         Me.Name = "main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Sparrow"
+        Me.Text = "交换机管理软件"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
@@ -426,4 +434,5 @@ Partial Class main
     Friend WithEvents lv_host As ColumnHeader
     Friend WithEvents lv_level As ColumnHeader
     Friend WithEvents lv_content As ColumnHeader
+    Friend WithEvents menu_scan As ToolStripMenuItem
 End Class

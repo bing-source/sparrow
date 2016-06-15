@@ -1,5 +1,4 @@
 ﻿Public Class group_settings
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Close()
@@ -107,5 +106,4 @@
             e.Handled = True
         End If
     End Sub
-
 End Class

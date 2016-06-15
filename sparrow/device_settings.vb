@@ -1,13 +1,12 @@
 ﻿Imports System.Windows.Forms
 
 Public Class device_settings
-
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         Dim str_hostName, str_HostGroup, str_IPAddr, str_Port, str_UserName, str_Password As String
         Dim str_Url, str_GetPara, str_PostPara As String
         Dim int_HostGroup, int_Auth, int_isIcmp As Integer
-        str_hostName = txt_HostName.Text.Trim
 
+        str_hostName = txt_HostName.Text.Trim
         str_HostGroup = cmb_HostGroup.Text.Trim
 
         If str_HostGroup.ToUpper = "DEFAULT" Or str_HostGroup.ToUpper = "[DEFAULT]" Then
@@ -39,6 +38,11 @@ Public Class device_settings
             End If
         End If
         str_Port = txt_Port.Text.Trim
+        If Integer.Parse(str_Port) > 65535 Then
+            MessageBox.Show("端口号不能大于 65535 ", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
         str_UserName = txt_UserName.Text.Trim
         'If str_UserName = "" Then
         '    MessageBox.Show("请输入用户名！", "提示", MessageBoxButtons.OK)
@@ -92,7 +96,7 @@ Public Class device_settings
 
         If Me.Text = "添加设备" Then
             Dim tb_webhost() As DataRow
-            tb_webhost = MyCls.hostDataSet.Tables("webhost").Select(" IPAddr='" & str_IPAddr & "'")
+            tb_webhost = MyCls.hostDataSet.Tables("webhost").Select("IPAddr='" & str_IPAddr & "'")
             If tb_webhost.Length > 0 Then
                 MessageBox.Show(str_IPAddr & " 已经存在，请重新输入。", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 txt_IPAddr.Focus()
@@ -110,7 +114,6 @@ Public Class device_settings
             Else
                 rowVals(0) = h_id
                 addHostList(rowVals)
-
             End If
         Else        '修改主机
             Dim tmpRet As Integer

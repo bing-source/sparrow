@@ -29,7 +29,6 @@
         Me.Close()
     End Sub
 
-
     Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Icon = My.Resources.app_ico
         Call saveFiles() '查找logo文件
@@ -50,7 +49,7 @@
     '登陆成功在根目录生产 logo.png 和 welcome.html， 防止用户修改。
     Sub saveFiles()
         Dim welcomeHtml As String = Application.StartupPath & "/welcome.html"
-        Dim biglogo As String = Application.StartupPath & "/logo.png"
+        Dim biglogo As String = Application.StartupPath & "/welcome.jpg"
 
         Dim SW As System.IO.StreamWriter
         SW = New System.IO.StreamWriter(welcomeHtml, False)
@@ -59,7 +58,6 @@
         SW.Close()
 
         My.Resources.big_logo.Save(biglogo)
-
     End Sub
 End Class
 

@@ -313,7 +313,7 @@ Public Class MyCls
         dlg.FilterIndex = 0
         dlg.RestoreDirectory = True
         dlg.CreatePrompt = True
-        dlg.Title = "Save as CSV file..."
+        dlg.Title = "导出到 CSV 文件..."
         If (dlg.ShowDialog = DialogResult.OK) Then
             Dim filepath As String = dlg.FileName
             Dim sw As StreamWriter
@@ -321,7 +321,7 @@ Public Class MyCls
                 sw = New StreamWriter(filepath, True, System.Text.Encoding.Unicode)
             Catch ex As Exception
                 WriteLog(ex.Message)
-                MessageBox.Show(ex.Message, "ERROR！", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
             End Try
 
@@ -359,7 +359,7 @@ Public Class MyCls
                 WriteLog(e.Message)
             Finally
                 sw.Close()
-                MessageBox.Show(Path.GetFileName(dlg.FileName) & " Save file success", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show(Path.GetFileName(dlg.FileName) & " 保存成功。", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Try
         End If
     End Sub

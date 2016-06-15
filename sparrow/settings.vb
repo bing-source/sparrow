@@ -101,6 +101,7 @@
         Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Close()
     End Sub
+
     Dim int_icmp As Integer = My.MySettings.Default.int_icmp
     Dim int_timeOut As Integer = My.MySettings.Default.int_timeOut
     Dim int_retry As Integer = My.MySettings.Default.int_retry
@@ -132,7 +133,4 @@
         End If
     End Sub
 
-    Private Sub lab_tip_Click(sender As Object, e As EventArgs)
-
-    End Sub
 End Class

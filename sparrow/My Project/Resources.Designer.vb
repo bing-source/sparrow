@@ -211,18 +211,20 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
-        '''&lt;html lang=&quot;en&quot; xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        '''  查找类似 &lt;!DOCTYPE html&gt;
+        '''&lt;html lang=&quot;zh-cn&quot;&gt;
         '''&lt;head&gt;
         '''    &lt;meta charset=&quot;utf-8&quot; /&gt;
+        '''    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
         '''    &lt;title&gt;Welcome&lt;/title&gt;
+        '''    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
         '''&lt;/head&gt;
-        '''&lt;body&gt;
-        '''&lt;div style=&quot;text-align:center; padding-top:100px&quot;&gt;
-        '''    &lt;img id=&quot;logo&quot; src=&quot;logo.png&quot; width=&quot;400&quot; /&gt;
-        '''&lt;/div&gt;
-        '''&lt;/body&gt;
-        '''&lt;/html&gt; 的本地化字符串。
+        '''&lt;body style=&quot;background-color:#FFFFF0&quot;&gt;
+        '''    &lt;div style=&quot;padding-top:100px;text-align:center;font-family:Microsoft YaHei,Verdana,Geneva,sans-serif;&quot;&gt;
+        '''        &lt;img title=&quot;www.inmax.com.cn&quot; src=&quot;logo.jpg&quot; width=&quot;400&quot; /&gt;
+        '''        &lt;p&gt;交换机管理软件&lt;/p&gt;
+        '''    &lt;/div&gt;
+        '''&lt;/body&gt;        ''' [字符串的其余部分被截断]&quot;; 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property welcome_html() As String
             Get

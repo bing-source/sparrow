@@ -215,7 +215,7 @@ Partial Class device_settings
         Me.txt_Url.Name = "txt_Url"
         Me.txt_Url.Size = New System.Drawing.Size(308, 21)
         Me.txt_Url.TabIndex = 7
-        Me.txt_Url.Text = "/"
+        Me.txt_Url.Text = "/index.htm"
         '
         'Label8
         '

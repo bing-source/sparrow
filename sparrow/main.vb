@@ -66,7 +66,7 @@ Public Class main
         Call loadHostGroup()
         Call loadwebHost()
         TreeView1.SelectedNode = TreeView1.Nodes(0)
-        TreeView1.Nodes(0).Expand() '默认展开 [Default] 分组
+        TreeView1.Nodes(0).Expand()
         Call Load_WelCome()
         If int_icmp = 1 Then
             'Timer1.Enabled = False
@@ -132,6 +132,11 @@ Public Class main
             End If
             menu_outTools.Visible = False  '隐藏外部工具
             ToolStripMenuItem3.Visible = False
+
+            ToolStripMenuItem2.Visible = True
+            menu_reLoadHost.Visible = True
+
+            menu_scan.Visible = True
         Else
             menu_delHost.Visible = True
             menu_addHost.Visible = False
@@ -140,6 +145,11 @@ Public Class main
             menu_modGroup.Visible = False
             menu_outTools.Visible = True '显示外部工具
             ToolStripMenuItem3.Visible = True
+
+            ToolStripMenuItem2.Visible = False
+            menu_reLoadHost.Visible = False
+
+            menu_scan.Visible = False
         End If
 
     End Sub
@@ -215,12 +225,15 @@ Public Class main
         Call loadHostGroup()
         Call loadwebHost()
         TreeView1.SelectedNode = TreeView1.Nodes(0)
-        TreeView1.Nodes(0).Expand() '默认展开 [Default] 分组
+        TreeView1.Nodes(0).Expand()
     End Sub
-
 
     Private Sub menu_modGroup_Click(sender As Object, e As EventArgs) Handles menu_modGroup.Click
         group_settings.ShowDialog()
+    End Sub
+
+    Private Sub menu_scan_Click(sender As Object, e As EventArgs) Handles menu_scan.Click
+        scan_devices.ShowDialog()
     End Sub
 
     Private Sub menu_delHost_Click(sender As Object, e As EventArgs) Handles menu_delHost.Click
@@ -491,10 +504,8 @@ Public Class main
             Dim reader As IO.StreamReader = poller_process.StandardOutput
             Dim line As String = reader.ReadLine()
 
-            If line <> "" Then
-                Dim Thread1 As New System.Threading.Thread(AddressOf ret_list_host)
-                Thread1.Start(line)
-            End If
+            Dim Thread1 As New System.Threading.Thread(AddressOf ret_list_host)
+            Thread1.Start(line)
             poller_process.WaitForExit()
             poller_process.Close()
         Catch ex As Exception
@@ -507,7 +518,10 @@ Public Class main
     Sub ret_list_host(ByVal hostls As String)
         Dim tmpdr() As DataRow
         tmpdr = MyCls.hostDataSet.Tables("webHost").Select("isicmp=1")
-        Dim arr_host = hostls.Split(" ")
+        Dim arr_host() As String = {}
+        If hostls <> "" Then
+            arr_host = hostls.Split(" ")
+        End If
         Dim vid, hostgroup, hostname, ipaddr, Sql As String
         Sql = ""
         For i = 0 To tmpdr.GetUpperBound(0)
@@ -560,7 +574,6 @@ Public Class main
             menu_reLoadHost_Click(sender, e)
         End If
     End Sub
-
     Private Sub Form1_KeyDown2(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
         If e.KeyCode = Keys.F3 Then
             cmb_seo.Focus()
@@ -627,10 +640,10 @@ Public Class main
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         Me.Hide()
-        BackgroundWorker1.CancelAsync()
         If trap_process.HasExited = False Then
             trap_process.Kill()
         End If
+        BackgroundWorker1.CancelAsync()
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
